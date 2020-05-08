@@ -16,9 +16,12 @@ if ($_POST)
 		}
 
 		$result = mysqli_query($conn, "SELECT * FROM sim where ask = '$ask'");
+
+		//Check existing question
 		if (mysqli_num_rows($result)) {
 			die('Câu Hỏi Đã Có. Vui Lòng Hỏi Câu Khác');
 		} else {
+			//Insert question and answer to database
 			$query = "INSERT INTO sim (`ask`, `ans`, `by`, `time`) VALUES ('".addslashes($ask)."', '".addslashes($ans)."', 'user', 'default')";
 			if(mysqli_query($conn, $query)) {
 				die("Sim Đã Ghi Nhớ <br /> Hỏi: ".$ask." <br /> Đáp: ".$ans);
