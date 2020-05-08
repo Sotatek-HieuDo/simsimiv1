@@ -1,12 +1,11 @@
 <?php
 $config['host'] = "localhost";
 
-$config['username'] = "zkzfcjfthosting_chatsims";
-$config['password'] = "GV8goLKEQ8WP";
-$config['dbname'] = "zkzfcjfthosting_simsimi";
-$connection = mysql_connect($config['host'],$config['username'],$config['password']);
-if (!$connection){
+$config['username'] = "root";
+$config['password'] = "";
+$config['dbname'] = "simsimi";
+
+$conn = mysqli_connect($config['host'],$config['username'],$config['password'], $config['dbname']);
+if (!$conn){
 die('ERORR DATA ');
 }
-mysql_select_db($config['dbname']) or die(mysql_error());
-mysql_query("SET NAMES utf8");
